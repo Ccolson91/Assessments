@@ -139,8 +139,8 @@ const foodArr = [
         tags: ['italian', 'starter', 'homemade']    
     },
     {
-        name: 'Alfredo',
-        price: 11.99,
+        name: 'Shrimp Fettuccine',
+        price: 12.99,
         category: 'entree',
         popularity: 4,
         rating: 3.7,
