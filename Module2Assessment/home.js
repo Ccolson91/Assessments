@@ -90,16 +90,15 @@ console.log(checkZipCode)
 // CODE HERE
 
 const canWeDeliverTwo = zipcode => {
-   deliveryAreaZipCodes.forEach(element => {
-   
-    if(element !== zipcode){
-           return 'it does not exist'
+    for(let element of deliveryAreaZipCodes){
+       if(element === zipcode){
+        return 'You\'re in our delivery zone!'
        } else {
-            return 'does exist'
-           
+           element++
        }
-   })
     }
+    return 'Sorry, we can\'t deliver to that address'
+}
 const checkZipCode2 = canWeDeliverTwo(85205)
 console.log(checkZipCode2)
 

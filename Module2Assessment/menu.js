@@ -210,8 +210,12 @@ console.log(filteredFood)
 //CODE HERE
 
 const filterByProperty = (property, number, type) => {
-    let filteredArray = foodArr.filter()
+    let filteredArray = foodArr.filter(element => element )
 }
+
+// filterByProperty(7, 6, above){
+//     return 
+// }
 
 
 
