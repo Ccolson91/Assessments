@@ -35,9 +35,9 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((total, currentVal) => currentVal.price + total, 0)
 
-
+console.log(summedPrice)
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
@@ -55,7 +55,24 @@ const cart = [
 
 //CODE HERE
 
+function calcFinalPrice (cartTotal, couponValue, tax){
+    const taxRate = cartTotal * tax
+    const finalPrice = cartTotal + taxRate
+    const priceWithCoupon = finalPrice - couponValue
+    console.log(priceWithCoupon)
+    return priceWithCoupon
+}
+calcFinalPrice(26.97, 5, .09)
 
+//WITH ARROW FUNCTION//
+// calcFinalPrice = (cartTotal, couponValue, tax) => {
+//     const taxRate = cartTotal * tax
+//     const finalPrice = cartTotal + taxRate
+//     const priceWithCoupon = finalPrice - couponValue
+//     console.log(priceWithCoupon)
+//     return priceWithCoupon
+// }
+// calcFinalPrice(54.34, 10, .09)
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -79,6 +96,12 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+    
+    The 4 properties I'll be using on my customer object are as followed: name, birthday, email, favoriteDish, hasKids.
+
+    Each of the first 4 properties will be a string; the last property, hasKids will return true or false.
+
+    I chose these properties for the purpose of personalization in marketing. With the above info, we can customize a unique experience for the customer by staying in touch with them, sending birthday deals and knowing their favorite dish or if they have children.
 
 */
 
@@ -88,3 +111,13 @@ const cart = [
 */
 
 //CODE HERE
+
+const customer = [
+    {
+        name: 'James Brown',
+        birthday: '10/10/1965',
+        email: 'watchyoself@gmail.com',
+        favoriteDish: 'Spaghetti',
+        hasKids: true
+    }
+]
