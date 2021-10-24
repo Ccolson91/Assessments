@@ -162,11 +162,7 @@ const foodArr = [
 
 //CODE HERE
 
-const filteredFood = foodArr.filter(element => {
-    if(element.name === "Meatballs"){
-        return 'hello'
-    }
-})
+const filteredFood = foodArr.filter(element => element.tags.includes('italian'))
 
 console.log(filteredFood)
 
@@ -212,6 +208,13 @@ console.log(filteredFood)
 */
 
 //CODE HERE
+
+const filterByProperty = (property, number, type) => {
+    let filteredArray = foodArr.filter(element => {
+        if(element.rating)
+    })
+}
+
 
 
 /*

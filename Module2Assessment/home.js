@@ -89,18 +89,19 @@ console.log(checkZipCode)
 
 // CODE HERE
 
-// const canWeDeliverTwo = zipcode => {
-//    deliveryAreaZipCodes.forEach(element => {
-//        if(zipcode !== element){
-//            return 'it does not exist'
-//        } else {
-//             return 'does exist'
+const canWeDeliverTwo = zipcode => {
+   deliveryAreaZipCodes.forEach(element => {
+   
+    if(element !== zipcode){
+           return 'it does not exist'
+       } else {
+            return 'does exist'
            
-//        }
-//    })
-//     }
-// const checkZipCode2 = canWeDeliverTwo(85205)
-// console.log(checkZipCode2)
+       }
+   })
+    }
+const checkZipCode2 = canWeDeliverTwo(85205)
+console.log(checkZipCode2)
 
 //////////////////PROBLEM 3////////////////////
 /* 
