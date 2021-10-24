@@ -32,64 +32,121 @@
 
 //CODE HERE
 
+let pizza = {
+    name: 'Pepperoni',
+    price: 17.99,
+    category: 'entree',
+    popularity: 8,
+    rating: 4.4,
+    tags: ['italian', 'pizza', 'homemade']
+}
+
 
 
 //////////////////PROBLEM 2////////////////////
 /* 
-    Let's print a few values from our pizza object.
+Let's print a few values from our pizza object.
 
-    First, log the popularity of pizza. 
-    Use dot notation to access the value.
+First, log the popularity of pizza. 
+Use dot notation to access the value.
 */
 
 //CODE HERE
 
+console.log(pizza.popularity)
+
 
 /*
-    Second, log the second tag in your pizza's
-    tags array.
-    Use a combination of dots and brackets to
+Second, log the second tag in your pizza's
+tags array.
+Use a combination of dots and brackets to
     get the value.
-*/
+    */
 
-//CODE HERE
-
-
-/*
-    Third, destructure the price off of the
-    pizza object.
+   //CODE HERE
+   
+   console.log(pizza.tags[1])
+   
+   
+   /*
+   Third, destructure the price off of the
+   pizza object.
     
-    Print the value of your new price variable.
+   Print the value of your new price variable.
 */
 
 //CODE HERE
+const {price} = pizza
+console.log(price)
 
 
 /*
-    Fourth, and last, destructure the category
-    property.
+Fourth, and last, destructure the category
+property.
 
-    Print the value of your category variable. 
+Print the value of your category variable. 
 */
 
 //CODE HERE
+const {category} = pizza
+console.log(category)
 
 
 //////////////////PROBLEM 3////////////////////
 /* 
-    Create an array with about 5 objects in it.
-    The objects should mimic the `pizza` object.
-    Call the array `foodArr`.
+Create an array with about 5 objects in it.
+The objects should mimic the `pizza` object.
+Call the array `foodArr`.
 
-    Make sure that they have slightly different
-    values for price, popularity, rating, and
-    tags. That way, you'll be able to use this
-    data in some functions that you'll write.
+Make sure that they have slightly different
+values for price, popularity, rating, and
+tags. That way, you'll be able to use this
+data in some functions that you'll write.
 */
 
 //CODE HERE
-
-
+const foodArr = [
+    {
+        name: 'Mozzarella sticks',
+        price: 8.99,
+        category: 'appetizer',
+        popularity: 7,
+        rating: 4.2,
+        tags: ['melty', 'fried', 'cheesey']    
+    },
+    {
+        name: 'Eggplant Parm',
+        price: 15.99,
+        category: 'entree',
+        popularity: 8,
+        rating: 4.8,
+        tags: ['italian', 'eggplant', 'marinara']    
+    },
+    {
+        name: 'Spaghetti',
+        price: 13.99,
+        category: 'entree',
+        popularity: 9,
+        rating: 4.9,
+        tags: ['italian', 'popular', 'fanfave']    
+    },
+    {
+        name: 'Meatballs',
+        price: 6.99,
+        category: 'appetizer',
+        popularity: 6,
+        rating: 4.1,
+        tags: ['italian', 'starter', 'homemade']    
+    },
+    {
+        name: 'Alfredo',
+        price: 11.99,
+        category: 'entree',
+        popularity: 4,
+        rating: 3.7,
+        tags: ['kids', 'noodles']    
+    }
+]
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,7 +162,13 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(element => {
+    if(element.name === "Meatballs"){
+        return 'hello'
+    }
+})
+
+console.log(filteredFood)
 
 
 
