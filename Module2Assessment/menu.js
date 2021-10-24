@@ -210,9 +210,7 @@ console.log(filteredFood)
 //CODE HERE
 
 const filterByProperty = (property, number, type) => {
-    let filteredArray = foodArr.filter(element => {
-        if(element.rating)
-    })
+    let filteredArray = foodArr.filter()
 }
 
 
