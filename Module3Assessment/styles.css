@@ -1,0 +1,62 @@
+body {
+  background: #ddd;
+  margin: 1rem;
+  padding: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+  border-bottom: 2px solid orange;
+}
+
+ol {
+  padding-left: 0;
+}
+
+.crumb {
+  margin-right: 2em;
+  display: inline;
+}
+
+.button {
+  font-size: 24pt;
+  margin: 20px;
+  background-color: gold;
+  border: none;
+  color: rgb(143, 34, 143);
+  font-weight: 800;
+  border: dotted 2px rgb(143, 34, 143);
+}
+
+#section-title {
+  border-left: solid 4px tomato;
+  padding: 5px;
+  font-weight: 800;
+}
+
+.about {
+  padding-left: 12px;
+  margin-bottom: 10px;
+}
+
+.profile-photo {
+  border-radius: 30%;
+}
+
+a {
+  color: orange;
+}
+
+a:visited {
+  color: crimson;
+}
+
+input {
+  display: block;
+}
+
+img {
+  max-width: 300px;
+}
