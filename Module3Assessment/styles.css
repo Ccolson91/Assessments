@@ -20,6 +20,18 @@ ol {
   display: inline;
 }
 
+#food-btn {
+  font-size: 18pt;
+  border-radius: 10px;
+  background-color: royalblue;
+  color: white;
+  box-shadow: 2px 2px 0px 0px gray;
+}
+
+#ghost {
+  max-height: 50px;
+}
+
 .button {
   font-size: 24pt;
   margin: 20px;

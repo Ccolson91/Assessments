@@ -17,3 +17,10 @@ const ritualClick = () => {
 
 const ritualButton = document.getElementById('ritual')
 ritualButton.addEventListener('click', ritualClick)
+
+const ghostClick = () => {
+  alert('AH YES, THE FRENCH DUCK SAID YOU\'DE BE STOPPING BY. CARRY ON GOOD WEB TRAVELER. CARRY ON.')
+}
+
+const ghostButton = document.getElementById('ghost')
+ghostButton.addEventListener('click', ghostClick)
