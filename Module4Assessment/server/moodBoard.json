@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Dave",
+    "mood": "Ridiculously good"
+  },
+  {
+    "id": 2,
+    "name": "Rebekah",
+    "mood": "So good"
+  },
+  {
+    "id": 3,
+    "name": "Sonny",
+    "mood": "Not great"
+  },
+  {
+    "id": 4,
+    "name": "Barbara",
+    "mood": "Fine, I guess"
+  }
+]
