@@ -31,23 +31,37 @@ axios.get('http://localhost:4000/api/favorites')
     }
   })
 
-   function submitHandler (e) {
+  //  function submitHandler (e) {
+  //   e.preventDefault()
+
+  //   let formInput = document.querySelector('#form-one')
+  //   const body = {
+  //     name: formInput.value
+  //   }
+
+  //   formInput.value = ''
+
+  //   axios.post('http://localhost:4000/api/favorites', body)
+  //     .then(res => {
+  //       let newFavorite = res.data[res.data.length -1]
+  //       let newPost = document.createElement('li')
+  //       newPost.textContent = newFavorite.name
+  //       favorites.append(newFavorite)
+  //     })
+  // }
+
+  favoritesSubmit.addEventListener('submit', (e) => {
     e.preventDefault()
-
-    let formInput = document.querySelector('#form-one')
+    let formInput = document.querySelector('#form-one').value
     const body = {
-      name: formInput.value
+      name: formInput
     }
-
-    formInput.value = ''
 
     axios.post('http://localhost:4000/api/favorites', body)
       .then(res => {
-        let newFavorite = res.data[res.data.length -1]
-        let newPost = document.createElement('li')
-        newPost.textContent = newFavorite.name
-        favorites.append(newFavorite)
+        let newFavorite = res.data[res.data.length - 1]
+        let newListing = document.createElement('li')
+        newListing.textContent = newFavorite.name
+        favorites.append(newListing)
       })
-  }
-
-  favoritesSubmit.addEventListener('submit', submitHandler)
+  })
