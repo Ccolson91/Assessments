@@ -1,18 +1,31 @@
 const express = require("express");
 const cors = require("cors");
-const favorites = require('./db.json')
 
 const app = express();
 
 app.use(cors());
-app.use(express.json()); 
 
+app.use(express.json());
 
-// get random compliment & send to html
+// app.post("/api/mood", (req, res) => {
+//   let moodContainer = document.getElementById('mood-container')
+
+// })
+
+// app.post('/api/mood/', (req, res) => {
+//   const name = req.body.name
+//   const mood = req.body.mood
+//   let newObj = {
+//     "name": name,
+//     "mood": mood
+//   }
+//   res.status(200).send(newObj)
+// })
+
 app.get("/api/compliment", (req, res) => {
   const compliments = ["Gee, you're a smart cookie!",
 					 "Cool shirt!",
-					 "Your Javascript skills are stellar."
+					 "Your Javascript skills are stellar.",
   ];
 
   // choose random compliment
@@ -23,29 +36,31 @@ app.get("/api/compliment", (req, res) => {
   
 });
 
-// get random fortune & return to html
-app.get("/api/fortune", (req, res) => {
-  const fortunes = ["A golden egg of opportunity falls into your lap this month.", "A lifetime friend shall soon be made.", "A pleasant surprise is waiting for you.", "Advice, when most needed, is least heeded.", "All your hard work will soon pay off."]
-  // choose random fortune
-  let randomIndex = Math.floor(Math.random() * fortunes.length)
-  let randomFortune = fortunes[randomIndex]
+  app.get("/api/fortunes", (req, res) => {
+    const fortunes = ["A faithful friend is a strong defense.",
+             "A lifetime friend shall soon be made.",
+             "A smile is your personal welcome mat.",
+             "Courtesy is contagious.",
+             "Do not let ambitions overshadow small success.",
+             "Don’t just spend time. Invest it."
+    ];
+  
+    // choose random compliment
+    let randomIndex = Math.floor(Math.random() * fortunes.length);
+    let randomFortune = fortunes[randomIndex];
+  
+    res.status(200).send(randomFortune);
+    
+  });
 
-  res.status(200).send(randomFortune)
+  
+  const {getFavorites, deleteFavorite, createFavorite, updateFavorite, getStates} = require('./controller.js')
+  
+  app.get(`/api/states`, getStates)
+  
+  app.get(`/api/favorites`, getFavorites)
+  app.delete(`/api/favorites/:id`, deleteFavorite) 
+  app.post(`/api/favorites`, createFavorite)
+  app.put(`/api/favorites/:id`, updateFavorite)
 
-})
-
-// show current list of favorites in html
-app.get('/api/favorites', (req, res) => {
-  res.status(200).send(favorites)
-})
-
-//create a new favorite
-app.post('/api/favorites', (req, res) => {
-  favorites.push(req.body)
-  res.status(200).send(favorites)
-})
-
-
-
-
-app.listen(4000, () => console.log("Server running on 4000"));
+app.listen(4000, () => console.log("Server JAMMIN on 4000"));
