@@ -3,18 +3,18 @@ const path = require('path')
 const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
+var Rollbar = require("rollbar");
 
 app.use(express.json())
 
-//To fix promise issue. 
-// app.use((req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.header(
-//       "Access-Control-Allow-Headers",
-//       "Origin, X-Requested-With, Content-Type, Accept"
-//     );
-//     next();
-//   });
+var rollbar = new Rollbar({
+  accessToken: '9e545b08985f47d39a8541ebd57c9ec3',
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
+
+// record a generic message and send it to Rollbar
+rollbar.log("Hello world!");
 
 app.use(express.static("public"));
 
@@ -28,6 +28,7 @@ app.get("/js", (req, res) => {
 app.get('/api/robots', (req, res) => {
     try {
         res.status(200).send(bots)
+        rollbar.log('Robots displayed properly')
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
@@ -39,6 +40,7 @@ app.get('/api/robots/five', (req, res) => {
         let shuffled = shuffleArray(bots)
         let choices = shuffled.slice(0, 5)
         let compDuo = shuffled.slice(6, 8)
+        rollbar.info('5 randomly selected bots displayed')
         res.status(200).send({choices, compDuo})
     } catch (error) {
         console.log('ERROR GETTING FIVE BOTS', error)
@@ -66,9 +68,11 @@ app.post('/api/duel', (req, res) => {
         // comparing the total health to determine a winner
         if (compHealthAfterAttack > playerHealthAfterAttack) {
             playerRecord.losses++
+            rollbar.warning('Player loses')
             res.status(200).send('You lost!')
         } else {
             playerRecord.losses++
+            rollbar.warning('Player wins')
             res.status(200).send('You won!')
         }
     } catch (error) {
@@ -79,6 +83,7 @@ app.post('/api/duel', (req, res) => {
 
 app.get('/api/player', (req, res) => {
     try {
+        rollbar.log('Player info sent')
         res.status(200).send(playerRecord)
     } catch (error) {
         console.log('ERROR GETTING PLAYER STATS', error)
